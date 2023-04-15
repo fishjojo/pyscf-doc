@@ -101,7 +101,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.1</span>
+          <span class="md-header-nav__topic">PySCF 2.2</span>
           <span class="md-header-nav__topic"> Crystal structure </span>
         </div>
       </div>
@@ -208,7 +208,7 @@
       
     </a>
     <a href="../../index.html"
-       title="PySCF">PySCF 2.1</a>
+       title="PySCF">PySCF 2.2</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -232,7 +232,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../install.html" class="md-nav__link">Install</a>
+      <a href="../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -443,6 +464,8 @@
         <li class="md-nav__item"><a href="#low-dimensional-systems" class="md-nav__link">Low-dimensional systems</a>
         </li>
         <li class="md-nav__item"><a href="#k-points" class="md-nav__link">K-points</a>
+        </li>
+        <li class="md-nav__item"><a href="#spin" class="md-nav__link">Spin</a>
         </li>
         <li class="md-nav__item"><a href="#other-parameters" class="md-nav__link">Other parameters</a>
         </li></ul>
@@ -694,11 +717,31 @@ For example, k-point sampled RHF can be invoked as follows:</p>
 </div>
 <p>More details about k-point sampling for each method can be found in the corresponding chapters.</p>
 </section>
+<section id="spin">
+<h3 id="spin">Spin<a class="headerlink" href="#spin" title="Permalink to this heading">¶</a></h3>
+<p>The attribute <code class="xref py py-attr docutils literal notranslate"><span class="pre">spin</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">Cell</span></code> class has a different meaning to the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">spin</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">Mole</span></code> class. <code class="xref py py-attr docutils literal notranslate"><span class="pre">Mole.spin</span></code> indicates the number of
+unpaired electrons of a molecule. Most attributes of class <code class="xref py py-class docutils literal notranslate"><span class="pre">Cell</span></code>
+represents the information of a unit cell, <code class="xref py py-attr docutils literal notranslate"><span class="pre">Cell.spin</span></code> is used to indicate
+the number of unpaired electrons of a super cell. In a <span class="math notranslate nohighlight">\(\Gamma\)</span>-point
+calculation, one can set <cite>cell.spin</cite> to control the unpaired electrons of the
+entire system. For calculations with k-point samplings, for example a 2x2x2
+k-point calculation, <cite>cell.spin=1</cite> leads to one unpaired electron rather than 8
+unpaired electrons.</p>
+<p>If wrong <cite>cell.spin</cite> is set, calculations will still run and a warning
+message for inconsistency between the electron number and spin may be raised.</p>
+<p>Currently, the program does not support to assign the unpaired electrons per
+unit cell. A temporary workaround is to set <cite>cell.spin</cite> to the product of the
+number of unpaired electrons and k-points.
+However, this setting only guarantees that the total numbers of alpha electrons
+and beta electrons agree to the <cite>cell.spin</cite> cross all k-points. The occupancies
+may be different at different k-points.</p>
+</section>
 <section id="other-parameters">
 <h3 id="other-parameters">Other parameters<a class="headerlink" href="#other-parameters" title="Permalink to this heading">¶</a></h3>
-<p>The attribute <code class="xref py py-attr docutils literal notranslate"><span class="pre">precision</span></code> of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Cell</span></code> object determines the integral accuracy.
-The default value is <code class="docutils literal notranslate"><span class="pre">1e-8</span></code> hartree. Some other parameters are set automatically
-based on the value of <code class="xref py py-attr docutils literal notranslate"><span class="pre">precision</span></code>, which include:</p>
+<p>The attribute <code class="xref py py-attr docutils literal notranslate"><span class="pre">precision</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">Cell</span></code> object determines the integral accuracy.
+The default value is <code class="docutils literal notranslate"><span class="pre">1e-8</span></code> hartree. When calling the <code class="xref py py-func docutils literal notranslate"><span class="pre">cell.build()</span></code> method,
+some parameters are set automatically based on the value of <code class="xref py py-attr docutils literal notranslate"><span class="pre">precision</span></code>, including:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">mesh</span></code> – length-3 list or 1x3 array of int</p>
@@ -718,9 +761,8 @@ based on the value of <code class="xref py py-attr docutils literal notranslate"
 </li>
 </ul>
 </div></blockquote>
-<p>The parameters above can also be set manually by the user.</p>
-<p>The other attributes of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Mole</span></code> class such as <code class="xref py py-attr docutils literal notranslate"><span class="pre">verbose</span></code>,
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">max_memory</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">spin</span></code>, etc., have the same meanings in the <code class="xref py py-class docutils literal notranslate"><span class="pre">Cell</span></code> class.</p>
+<p>Other attributes of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Mole</span></code> class such as <code class="xref py py-attr docutils literal notranslate"><span class="pre">verbose</span></code>,
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">max_memory</span></code>, etc., have the same meanings in the <code class="xref py py-class docutils literal notranslate"><span class="pre">Cell</span></code> class.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Currently, point group symmetries for crystals are not supported.</p>

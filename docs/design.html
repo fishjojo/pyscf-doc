@@ -97,7 +97,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.1</span>
+          <span class="md-header-nav__topic">PySCF 2.2</span>
           <span class="md-header-nav__topic"> General designs </span>
         </div>
       </div>
@@ -202,7 +202,7 @@
       
     </a>
     <a href="index.html"
-       title="PySCF">PySCF 2.1</a>
+       title="PySCF">PySCF 2.2</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -226,7 +226,28 @@
     <li class="md-nav__item">
     
     
-      <a href="install.html" class="md-nav__link">Install</a>
+      <a href="install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -409,8 +430,7 @@ available memory in the operate system at the runtime and set the maximum memory
 for PySCF:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat ~/.pyscf_conf.py
 import psutil
-total, available, percent, used, free, active, inactive, buffers, cached, shared = psutil.virtual_memory()
-MAX_MEMORY = available
+MAX_MEMORY = int(psutil.virtual_memory().available / 1e6)
 </pre></div>
 </div>
 <p>By setting <code class="docutils literal notranslate"><span class="pre">MAX_MEMORY</span></code> in the global configuration file, you don’t need the

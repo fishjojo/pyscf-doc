@@ -101,7 +101,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.1</span>
+          <span class="md-header-nav__topic">PySCF 2.2</span>
           <span class="md-header-nav__topic"> pyscf.lib package </span>
         </div>
       </div>
@@ -207,7 +207,7 @@
       
     </a>
     <a href="../index.html"
-       title="PySCF">PySCF 2.1</a>
+       title="PySCF">PySCF 2.2</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -231,7 +231,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../install.html" class="md-nav__link">Install</a>
+      <a href="../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -340,7 +361,7 @@
         </li>
         <li class="md-nav__item"><a href="#pyscf-lib-libnp-helper-module" class="md-nav__link">pyscf.lib.libnp_helper module</a>
         </li>
-        <li class="md-nav__item"><a href="#pyscf-lib-libopenblas-r0-da994f36-module" class="md-nav__link">pyscf.lib.libopenblas-r0-da994f36 module</a>
+        <li class="md-nav__item"><a href="#pyscf-lib-libopenblas-r0-f650aae0-module" class="md-nav__link">pyscf.lib.libopenblas-r0-f650aae0 module</a>
         </li>
         <li class="md-nav__item"><a href="#pyscf-lib-libpbc-module" class="md-nav__link">pyscf.lib.libpbc module</a>
         </li>
@@ -783,8 +804,8 @@ vector to extrapolate the vector.</p>
 <section id="pyscf-lib-libnp-helper-module">
 <h2 id="pyscf-lib-libnp-helper-module">pyscf.lib.libnp_helper module<a class="headerlink" href="#pyscf-lib-libnp-helper-module" title="Permalink to this heading">¶</a></h2>
 </section>
-<section id="pyscf-lib-libopenblas-r0-da994f36-module">
-<h2 id="pyscf-lib-libopenblas-r0-da994f36-module">pyscf.lib.libopenblas-r0-da994f36 module<a class="headerlink" href="#pyscf-lib-libopenblas-r0-da994f36-module" title="Permalink to this heading">¶</a></h2>
+<section id="pyscf-lib-libopenblas-r0-f650aae0-module">
+<h2 id="pyscf-lib-libopenblas-r0-f650aae0-module">pyscf.lib.libopenblas-r0-f650aae0 module<a class="headerlink" href="#pyscf-lib-libopenblas-r0-f650aae0-module" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="pyscf-lib-libpbc-module">
 <h2 id="pyscf-lib-libpbc-module">pyscf.lib.libpbc module<a class="headerlink" href="#pyscf-lib-libpbc-module" title="Permalink to this heading">¶</a></h2>
@@ -987,7 +1008,7 @@ help to improve numerical stability.  Default is False.</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyscf.lib.linalg_helper.davidson_nosym">
-<span class="sig-prename descclassname"><span class="pre">pyscf.lib.linalg_helper.</span></span><span class="sig-name descname"><span class="pre">davidson_nosym</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol=1e-12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_cycle=50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_space=12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lindep=1e-14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_memory=2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dot=&lt;function</span> <span class="pre">dot&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nroots=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lessio=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pick=&lt;function</span> <span class="pre">pick_real_eigs&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">follow_state=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyscf.lib.linalg_helper.davidson_nosym" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyscf.lib.linalg_helper.</span></span><span class="sig-name descname"><span class="pre">davidson_nosym</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol=1e-12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_cycle=50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_space=20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lindep=1e-14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_memory=2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dot=&lt;function</span> <span class="pre">dot&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nroots=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lessio=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pick=&lt;function</span> <span class="pre">pick_real_eigs&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">follow_state=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyscf.lib.linalg_helper.davidson_nosym" title="Permalink to this definition">¶</a></dt>
 <dd><p>Davidson diagonalization to solve the non-symmetric eigenvalue problem</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -1073,7 +1094,7 @@ return value of <code class="docutils literal notranslate"><span class="pre">pic
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyscf.lib.linalg_helper.davidson_nosym1">
-<span class="sig-prename descclassname"><span class="pre">pyscf.lib.linalg_helper.</span></span><span class="sig-name descname"><span class="pre">davidson_nosym1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol=1e-12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_cycle=50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_space=12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lindep=1e-14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_memory=2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dot=&lt;function</span> <span class="pre">dot&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nroots=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lessio=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pick=&lt;function</span> <span class="pre">pick_real_eigs&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">follow_state=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_residual=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_heff=&lt;function</span> <span class="pre">_fill_heff&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyscf/lib/linalg_helper.html#davidson_nosym1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyscf.lib.linalg_helper.davidson_nosym1" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyscf.lib.linalg_helper.</span></span><span class="sig-name descname"><span class="pre">davidson_nosym1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol=1e-12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_cycle=50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_space=20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lindep=1e-14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_memory=2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dot=&lt;function</span> <span class="pre">dot&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nroots=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lessio=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pick=&lt;function</span> <span class="pre">pick_real_eigs&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">follow_state=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_residual=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_heff=&lt;function</span> <span class="pre">_fill_heff&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyscf/lib/linalg_helper.html#davidson_nosym1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyscf.lib.linalg_helper.davidson_nosym1" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyscf.lib.linalg_helper.dgeev">
@@ -1191,8 +1212,8 @@ second method can be considered.</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyscf.lib.linalg_helper.dsolve">
-<span class="sig-prename descclassname"><span class="pre">pyscf.lib.linalg_helper.</span></span><span class="sig-name descname"><span class="pre">dsolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol=1e-12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_cycle=30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dot=&lt;function</span> <span class="pre">dot&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lindep=1e-15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_residual=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyscf/lib/linalg_helper.html#dsolve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyscf.lib.linalg_helper.dsolve" title="Permalink to this definition">¶</a></dt>
-<dd><p>Davidson iteration to solve linear equation.  It works bad.</p>
+<span class="sig-prename descclassname"><span class="pre">pyscf.lib.linalg_helper.</span></span><span class="sig-name descname"><span class="pre">dsolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol=1e-12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_cycle=30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dot=&lt;function</span> <span class="pre">dot&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lindep=1e-15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_residual=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyscf.lib.linalg_helper.dsolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Davidson iteration to solve linear equation.</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyscf.lib.linalg_helper.dsyev">
@@ -1200,7 +1221,7 @@ second method can be considered.</p>
 <dd></dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyscf.lib.linalg_helper.eig">
-<span class="sig-prename descclassname"><span class="pre">pyscf.lib.linalg_helper.</span></span><span class="sig-name descname"><span class="pre">eig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol=1e-12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_cycle=50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_space=12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lindep=1e-14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_memory=2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dot=&lt;function</span> <span class="pre">dot&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nroots=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lessio=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pick=&lt;function</span> <span class="pre">pick_real_eigs&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">follow_state=False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyscf/lib/linalg_helper.html#eig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyscf.lib.linalg_helper.eig" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyscf.lib.linalg_helper.</span></span><span class="sig-name descname"><span class="pre">eig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol=1e-12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_cycle=50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_space=20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lindep=1e-14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_memory=2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dot=&lt;function</span> <span class="pre">dot&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nroots=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lessio=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pick=&lt;function</span> <span class="pre">pick_real_eigs&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">follow_state=False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyscf/lib/linalg_helper.html#eig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyscf.lib.linalg_helper.eig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Davidson diagonalization to solve the non-symmetric eigenvalue problem</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -1427,6 +1448,11 @@ eigenvalues are smaller than this threshold.</p>
 seig is the eigenvalue vector of the metric s.</p>
 </dd>
 </dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyscf.lib.linalg_helper.solve">
+<span class="sig-prename descclassname"><span class="pre">pyscf.lib.linalg_helper.</span></span><span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol=1e-12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_cycle=30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dot=&lt;function</span> <span class="pre">dot&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lindep=1e-15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_residual=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyscf/lib/linalg_helper.html#solve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyscf.lib.linalg_helper.solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Davidson iteration to solve linear equation.</p>
 </dd></dl>
 </section>
 <section id="module-pyscf.lib.logger">
@@ -2175,6 +2201,21 @@ fragment.</p>
 </div>
 </dd></dl>
 <dl class="py function">
+<dt class="sig sig-object py" id="pyscf.lib.misc.prange_split">
+<span class="sig-prename descclassname"><span class="pre">pyscf.lib.misc.</span></span><span class="sig-name descname"><span class="pre">prange_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_total</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sections</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyscf/lib/misc.html#prange_split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyscf.lib.misc.prange_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate prange sequence that splits n_total elements into n sections.
+The splits parallel to the np.array_split convention: the first (l % n)
+sections of size l//n + 1 and the rest of size l//n.</p>
+<p>Examples:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p0</span><span class="p">,</span> <span class="n">p1</span> <span class="ow">in</span> <span class="n">lib</span><span class="o">.</span><span class="n">prange_split</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span>
+<span class="go">(0, 4)</span>
+<span class="go">(4, 7)</span>
+<span class="go">(7, 10)</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py function">
 <dt class="sig sig-object py" id="pyscf.lib.misc.prange_tril">
 <span class="sig-prename descclassname"><span class="pre">pyscf.lib.misc.</span></span><span class="sig-name descname"><span class="pre">prange_tril</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocksize</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyscf/lib/misc.html#prange_tril"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyscf.lib.misc.prange_tril" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <a class="reference internal" href="#pyscf.lib.misc.prange" title="pyscf.lib.misc.prange"><code class="xref py py-func docutils literal notranslate"><span class="pre">prange()</span></code></a>, yeilds start (p0) and end (p1) with the
@@ -2334,6 +2375,38 @@ context, the number OpenMP threads will be restored.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
 </dd></dl>
 <dl class="py function">
+<dt class="sig sig-object py" id="pyscf.lib.numpy_helper.base_repr_int">
+<span class="sig-prename descclassname"><span class="pre">pyscf.lib.numpy_helper.</span></span><span class="sig-name descname"><span class="pre">base_repr_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndigits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyscf/lib/numpy_helper.html#base_repr_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyscf.lib.numpy_helper.base_repr_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to numpy.base_repr, but returns a list of integers.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>number<span class="classifier">array or int</span></dt><dd><p>The value to convert. Negative values are converted to
+their absolute values.</p>
+</dd>
+<dt>base<span class="classifier">int</span></dt><dd><p>Convert <cite>number</cite> to the <cite>base</cite> number system.</p>
+</dd>
+<dt>ndigits<span class="classifier">int, optional</span></dt><dd><p>Number of digits. If given, pad zeros to the left until the number
+of digits reaches <cite>ndigits</cite>. Default is None, meaning no padding.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>out<span class="classifier">list</span></dt><dd><p>Representation of <cite>number</cite> in <cite>base</cite> system.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lib</span><span class="o">.</span><span class="n">base_repr_int</span><span class="p">(</span><span class="mi">29</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>[3, 5]</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lib</span><span class="o">.</span><span class="n">base_repr_int</span><span class="p">(</span><span class="mi">29</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">[0, 3, 5]</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py function">
 <dt class="sig sig-object py" id="pyscf.lib.numpy_helper.cartesian_prod">
 <span class="sig-prename descclassname"><span class="pre">pyscf.lib.numpy_helper.</span></span><span class="sig-name descname"><span class="pre">cartesian_prod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arrays</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyscf/lib/numpy_helper.html#cartesian_prod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyscf.lib.numpy_helper.cartesian_prod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate a cartesian product of input arrays.
@@ -2369,6 +2442,30 @@ formed of input arrays.</p>
 <span class="go">       [3, 5, 7]])</span>
 </pre></div>
 </div>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyscf.lib.numpy_helper.cleanse">
+<span class="sig-prename descclassname"><span class="pre">pyscf.lib.numpy_helper.</span></span><span class="sig-name descname"><span class="pre">cleanse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyscf/lib/numpy_helper.html#cleanse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyscf.lib.numpy_helper.cleanse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove floating-point errors by setting the
+numbers with differences smaller than <cite>tol</cite>
+to the same value. This should allow
+<cite>numpy.round_</cite> and <cite>numpy.unique</cite> together
+to work as expected.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>a<span class="classifier">ndarray</span></dt><dd><p>Array to be cleansed.</p>
+</dd>
+<dt>axis<span class="classifier">int or None</span></dt><dd><p>Axis along which the array values are compared.
+Default is the first axis. If set to None,
+the flattened array is used.</p>
+</dd>
+<dt>tol<span class="classifier">floating</span></dt><dd><p>Tolerance, default is 0.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>Cleansed array.</p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyscf.lib.numpy_helper.cond">
@@ -2492,6 +2589,54 @@ be explicitly specified (i.e. ‘ij,j-&gt;i’ and not ‘ij,j’).</p>
 <span class="go">[[ 0. -3. -6.]</span>
 <span class="go"> [ 3.  4. -7.]</span>
 <span class="go"> [ 6.  7.  8.]]</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyscf.lib.numpy_helper.inv_base_repr_int">
+<span class="sig-prename descclassname"><span class="pre">pyscf.lib.numpy_helper.</span></span><span class="sig-name descname"><span class="pre">inv_base_repr_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyscf/lib/numpy_helper.html#inv_base_repr_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyscf.lib.numpy_helper.inv_base_repr_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inverse of <cite>base_repr_int</cite>.
+Similar to Python function int(), but for arbitrary base.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>x : array like
+base : int</p>
+</dd>
+<dt>Returns:</dt><dd><p>out : int</p>
+</dd>
+</dl>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lib</span><span class="o">.</span><span class="n">inv_base_repr_int</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="mi">27</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>495</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lib</span><span class="o">.</span><span class="n">base_repr_int</span><span class="p">(</span><span class="mi">495</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">[0, 18, 9]</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyscf.lib.numpy_helper.isin_1d">
+<span class="sig-prename descclassname"><span class="pre">pyscf.lib.numpy_helper.</span></span><span class="sig-name descname"><span class="pre">isin_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyscf/lib/numpy_helper.html#isin_1d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyscf.lib.numpy_helper.isin_1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if vector <cite>v</cite> is in vectors <cite>vs</cite>.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>v<span class="classifier">array like</span></dt><dd><p>The target vector. <cite>v</cite> is flattened.</p>
+</dd>
+<dt>vs<span class="classifier">array like</span></dt><dd><p>A list of vectors. The last dimenstion of <cite>vs</cite>
+should be the same as the size of <cite>v</cite>.</p>
+</dd>
+<dt>return_index<span class="classifier">bool</span></dt><dd><p>Index of <cite>v</cite> in <cite>vs</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lib</span><span class="o">.</span><span class="n">isin_1d</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>True</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lib</span><span class="o">.</span><span class="n">isin_1d</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="go">False</span>
 </pre></div>
 </div>
 </dd></dl>

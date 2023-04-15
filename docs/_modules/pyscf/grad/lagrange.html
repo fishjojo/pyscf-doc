@@ -96,7 +96,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.1</span>
+          <span class="md-header-nav__topic">PySCF 2.2</span>
           <span class="md-header-nav__topic"> pyscf.grad.lagrange </span>
         </div>
       </div>
@@ -203,7 +203,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="PySCF">PySCF 2.1</a>
+       title="PySCF">PySCF 2.2</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -227,7 +227,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -442,22 +463,25 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">converged</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Lvec</span><span class="p">,</span> <span class="n">bvec</span><span class="p">,</span> <span class="n">Aop</span><span class="p">,</span> <span class="n">Adiag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solve_lagrange</span> <span class="p">(</span>
             <span class="n">level_shift</span><span class="o">=</span><span class="n">level_shift</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">debug_lagrange</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Lvec</span><span class="p">,</span> <span class="n">bvec</span><span class="p">,</span> <span class="n">Aop</span><span class="p">,</span> <span class="n">Adiag</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">cput1</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">timer</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'Lagrange gradient multiplier solution'</span><span class="p">,</span> <span class="o">*</span><span class="n">cput0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;=</span> <span class="n">logger</span><span class="o">.</span><span class="n">INFO</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">debug_lagrange</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Lvec</span><span class="p">,</span> <span class="n">bvec</span><span class="p">,</span> <span class="n">Aop</span><span class="p">,</span> <span class="n">Adiag</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">cput1</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">timer</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'Lagrange gradient multiplier solution'</span><span class="p">,</span> <span class="o">*</span><span class="n">cput0</span><span class="p">)</span>
 
         <span class="n">ham_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ham_response</span> <span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'--------------- </span><span class="si">%s</span><span class="s1"> gradient Hamiltonian response ---------------'</span><span class="p">,</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-        <span class="n">rhf_grad</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="n">ham_response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">atmlst</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'----------------------------------------------'</span><span class="p">)</span>
-        <span class="n">cput1</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">timer</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'Lagrange gradient Hellmann-Feynman determination'</span><span class="p">,</span> <span class="o">*</span><span class="n">cput1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;=</span> <span class="n">logger</span><span class="o">.</span><span class="n">INFO</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'--------------- </span><span class="si">%s</span><span class="s1"> gradient Hamiltonian response ---------------'</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="n">rhf_grad</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="n">ham_response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">atmlst</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'----------------------------------------------'</span><span class="p">)</span>
+            <span class="n">cput1</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">timer</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'Lagrange gradient Hellmann-Feynman determination'</span><span class="p">,</span> <span class="o">*</span><span class="n">cput1</span><span class="p">)</span>
 
         <span class="n">LdotJnuc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_LdotJnuc</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Lvec</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'--------------- </span><span class="si">%s</span><span class="s1"> gradient Lagrange response ---------------'</span><span class="p">,</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-        <span class="n">rhf_grad</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="n">LdotJnuc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">atmlst</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'----------------------------------------------'</span><span class="p">)</span>
-        <span class="n">cput1</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">timer</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'Lagrange gradient Jacobian'</span><span class="p">,</span> <span class="o">*</span><span class="n">cput1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;=</span> <span class="n">logger</span><span class="o">.</span><span class="n">INFO</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'--------------- </span><span class="si">%s</span><span class="s1"> gradient Lagrange response ---------------'</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="n">rhf_grad</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="n">LdotJnuc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">atmlst</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'----------------------------------------------'</span><span class="p">)</span>
+            <span class="n">cput1</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">timer</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'Lagrange gradient Jacobian'</span><span class="p">,</span> <span class="o">*</span><span class="n">cput1</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">de</span> <span class="o">=</span> <span class="n">ham_response</span> <span class="o">+</span> <span class="n">LdotJnuc</span>
         <span class="n">log</span><span class="o">.</span><span class="n">timer</span><span class="p">(</span><span class="s1">'Lagrange gradients'</span><span class="p">,</span> <span class="o">*</span><span class="n">cput0</span><span class="p">)</span>

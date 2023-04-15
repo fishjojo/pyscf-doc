@@ -96,7 +96,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.1</span>
+          <span class="md-header-nav__topic">PySCF 2.2</span>
           <span class="md-header-nav__topic"> pyscf.gto.basis.parse_nwchem </span>
         </div>
       </div>
@@ -204,7 +204,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="PySCF">PySCF 2.1</a>
+       title="PySCF">PySCF 2.2</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -228,7 +228,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -432,6 +453,8 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">current_basis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
     <span class="n">basis_sorted</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span> <span class="k">for</span> <span class="n">bs</span> <span class="ow">in</span> <span class="n">basis_parsed</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bs</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">basis_sorted</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">BasisNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Basis data not found in "</span><span class="si">{</span><span class="n">raw_basis</span><span class="si">}</span><span class="s1">"'</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">optimize</span><span class="p">:</span>
         <span class="n">basis_sorted</span> <span class="o">=</span> <span class="n">optimize_contraction</span><span class="p">(</span><span class="n">basis_sorted</span><span class="p">)</span>
@@ -501,11 +524,13 @@
 
     <span class="k">if</span> <span class="n">nelec</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">bsort</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">MAXL</span><span class="p">):</span>
-            <span class="n">bsort</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">b</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">ecp_add</span> <span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">l</span><span class="p">])</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">nelec</span><span class="p">,</span> <span class="n">bsort</span><span class="p">]</span>
+
+    <span class="n">bsort</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">MAXL</span><span class="p">):</span>
+        <span class="n">bsort</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">b</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">ecp_add</span> <span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">l</span><span class="p">])</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">bsort</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">BasisNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'ECP data not found in "</span><span class="si">{</span><span class="n">raw_ecp</span><span class="si">}</span><span class="s1">"'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">nelec</span><span class="p">,</span> <span class="n">bsort</span><span class="p">]</span>
 
 <div class="viewcode-block" id="load_ecp"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.gto.basis.html#pyscf.gto.basis.parse_nwchem.load_ecp">[docs]</a><span class="k">def</span> <span class="nf">load_ecp</span><span class="p">(</span><span class="n">basisfile</span><span class="p">,</span> <span class="n">symb</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">_parse_ecp</span><span class="p">(</span><span class="n">search_ecp</span><span class="p">(</span><span class="n">basisfile</span><span class="p">,</span> <span class="n">symb</span><span class="p">))</span></div>

@@ -96,7 +96,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.1</span>
+          <span class="md-header-nav__topic">PySCF 2.2</span>
           <span class="md-header-nav__topic"> pyscf.grad.tdrks </span>
         </div>
       </div>
@@ -203,7 +203,7 @@
       
     </a>
     <a href="../../../index.html"
-       title="PySCF">PySCF 2.1</a>
+       title="PySCF">PySCF 2.2</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -227,7 +227,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -379,11 +400,11 @@
             <span class="n">_contract_xc_kernel</span><span class="p">(</span><span class="n">td_grad</span><span class="p">,</span> <span class="n">mf</span><span class="o">.</span><span class="n">xc</span><span class="p">,</span> <span class="n">dmxpy</span><span class="p">,</span>
                                 <span class="n">dmzoo</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">singlet</span><span class="p">,</span> <span class="n">max_memory</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">hyb</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-10</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">ni</span><span class="o">.</span><span class="n">libxc</span><span class="o">.</span><span class="n">is_hybrid_xc</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">xc</span><span class="p">):</span>
         <span class="n">dm</span> <span class="o">=</span> <span class="p">(</span><span class="n">dmzoo</span><span class="p">,</span> <span class="n">dmxpy</span><span class="o">+</span><span class="n">dmxpy</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">dmxmy</span><span class="o">-</span><span class="n">dmxmy</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
         <span class="n">vj</span><span class="p">,</span> <span class="n">vk</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">get_jk</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">hermi</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">vk</span> <span class="o">*=</span> <span class="n">hyb</span>
-        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-10</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">omega</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">vk</span> <span class="o">+=</span> <span class="n">mf</span><span class="o">.</span><span class="n">get_k</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">hermi</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="n">omega</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">alpha</span><span class="o">-</span><span class="n">hyb</span><span class="p">)</span>
         <span class="n">veff0doo</span> <span class="o">=</span> <span class="n">vj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">vk</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">f1oo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">k1ao</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
         <span class="n">wvo</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">orbv</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">veff0doo</span><span class="p">,</span> <span class="n">orbo</span><span class="p">))</span> <span class="o">*</span> <span class="mi">2</span>
@@ -453,13 +474,12 @@
 
     <span class="n">dmz1doo</span> <span class="o">=</span> <span class="n">z1ao</span> <span class="o">+</span> <span class="n">dmzoo</span>
     <span class="n">oo0</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">orbo</span><span class="p">,</span> <span class="n">orbo</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
-    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">hyb</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-10</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">ni</span><span class="o">.</span><span class="n">libxc</span><span class="o">.</span><span class="n">is_hybrid_xc</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">xc</span><span class="p">):</span>
         <span class="n">dm</span> <span class="o">=</span> <span class="p">(</span><span class="n">oo0</span><span class="p">,</span> <span class="n">dmz1doo</span><span class="o">+</span><span class="n">dmz1doo</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">dmxpy</span><span class="o">+</span><span class="n">dmxpy</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">dmxmy</span><span class="o">-</span><span class="n">dmxmy</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
         <span class="n">vj</span><span class="p">,</span> <span class="n">vk</span> <span class="o">=</span> <span class="n">td_grad</span><span class="o">.</span><span class="n">get_jk</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm</span><span class="p">)</span>
         <span class="n">vk</span> <span class="o">*=</span> <span class="n">hyb</span>
-        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-10</span><span class="p">:</span>
-            <span class="k">with</span> <span class="n">mol</span><span class="o">.</span><span class="n">with_range_coulomb</span><span class="p">(</span><span class="n">omega</span><span class="p">):</span>
-                <span class="n">vk</span> <span class="o">+=</span> <span class="n">td_grad</span><span class="o">.</span><span class="n">get_k</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">alpha</span><span class="o">-</span><span class="n">hyb</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">omega</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">vk</span> <span class="o">+=</span> <span class="n">td_grad</span><span class="o">.</span><span class="n">get_k</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="n">omega</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">alpha</span><span class="o">-</span><span class="n">hyb</span><span class="p">)</span>
         <span class="n">vj</span> <span class="o">=</span> <span class="n">vj</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">nao</span><span class="p">,</span><span class="n">nao</span><span class="p">)</span>
         <span class="n">vk</span> <span class="o">=</span> <span class="n">vk</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">nao</span><span class="p">,</span><span class="n">nao</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">singlet</span><span class="p">:</span>

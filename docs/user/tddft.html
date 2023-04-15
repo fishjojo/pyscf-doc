@@ -101,7 +101,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.1</span>
+          <span class="md-header-nav__topic">PySCF 2.2</span>
           <span class="md-header-nav__topic"> Time-dependent Hartree-Fock and density functional theory </span>
         </div>
       </div>
@@ -207,7 +207,7 @@
       
     </a>
     <a href="../index.html"
-       title="PySCF">PySCF 2.1</a>
+       title="PySCF">PySCF 2.2</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -231,7 +231,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../install.html" class="md-nav__link">Install</a>
+      <a href="../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -580,7 +601,7 @@ the reference state can be either restricted or unrestricted:</p>
 </div>
 <p>By default, only singlet excited states are computed.
 In order to compute triplet excited states, one needs to set the
-attribute <a class="reference internal" href="../pyscf_api_docs/pyscf.tdscf.html#pyscf.tdscf.ghf.TDA.singlet" title="pyscf.tdscf.ghf.TDA.singlet"><code class="xref py py-attr docutils literal notranslate"><span class="pre">singlet</span></code></a> to <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+attribute <a class="reference internal" href="../pyscf_api_docs/pyscf.pbc.tdscf.html#pyscf.pbc.tdscf.uhf.TDA.singlet" title="pyscf.pbc.tdscf.uhf.TDA.singlet"><code class="xref py py-attr docutils literal notranslate"><span class="pre">singlet</span></code></a> to <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mytd</span><span class="o">.</span><span class="n">singlet</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">mytd</span><span class="o">.</span><span class="n">kernel</span><span class="p">()</span>
 </pre></div>
