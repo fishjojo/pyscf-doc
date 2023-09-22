@@ -59,7 +59,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="pyscf.adc package" href="pyscf.adc.html" />
-    <link rel="prev" title="How to contribute" href="../contributing.html" />
+    <link rel="prev" title="Molecular CISD" href="../develop/cisd.html" />
   
    
 
@@ -5552,6 +5552,7 @@
 <li class="toctree-l4"><a class="reference internal" href="pyscf.scf.html#pyscf.scf.hf.RHF.CISD"><code class="docutils literal notranslate"><span class="pre">RHF.CISD()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.scf.html#pyscf.scf.hf.RHF.DFMP2"><code class="docutils literal notranslate"><span class="pre">RHF.DFMP2()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.scf.html#pyscf.scf.hf.RHF.Gradients"><code class="docutils literal notranslate"><span class="pre">RHF.Gradients()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyscf.scf.html#pyscf.scf.hf.RHF.Hessian"><code class="docutils literal notranslate"><span class="pre">RHF.Hessian()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.scf.html#pyscf.scf.hf.RHF.MP2"><code class="docutils literal notranslate"><span class="pre">RHF.MP2()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.scf.html#pyscf.scf.hf.RHF.TDA"><code class="docutils literal notranslate"><span class="pre">RHF.TDA()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.scf.html#pyscf.scf.hf.RHF.TDHF"><code class="docutils literal notranslate"><span class="pre">RHF.TDHF()</span></code></a></li>
@@ -5836,6 +5837,7 @@
 <li class="toctree-l4"><a class="reference internal" href="pyscf.scf.html#pyscf.scf.uhf.UHF.CISD"><code class="docutils literal notranslate"><span class="pre">UHF.CISD()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.scf.html#pyscf.scf.uhf.UHF.DFMP2"><code class="docutils literal notranslate"><span class="pre">UHF.DFMP2</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.scf.html#pyscf.scf.uhf.UHF.Gradients"><code class="docutils literal notranslate"><span class="pre">UHF.Gradients()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyscf.scf.html#pyscf.scf.uhf.UHF.Hessian"><code class="docutils literal notranslate"><span class="pre">UHF.Hessian()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.scf.html#pyscf.scf.uhf.UHF.MP2"><code class="docutils literal notranslate"><span class="pre">UHF.MP2()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.scf.html#pyscf.scf.uhf.UHF.TDA"><code class="docutils literal notranslate"><span class="pre">UHF.TDA()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.scf.html#pyscf.scf.uhf.UHF.TDHF"><code class="docutils literal notranslate"><span class="pre">UHF.TDHF()</span></code></a></li>
@@ -6388,14 +6390,12 @@
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.CIS"><code class="docutils literal notranslate"><span class="pre">CIS</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.RPA"><code class="docutils literal notranslate"><span class="pre">RPA</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDA"><code class="docutils literal notranslate"><span class="pre">TDA</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDA.Gradients"><code class="docutils literal notranslate"><span class="pre">TDA.Gradients()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDA.gen_vind"><code class="docutils literal notranslate"><span class="pre">TDA.gen_vind()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDA.init_guess"><code class="docutils literal notranslate"><span class="pre">TDA.init_guess()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDA.kernel"><code class="docutils literal notranslate"><span class="pre">TDA.kernel()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDHF"><code class="docutils literal notranslate"><span class="pre">TDHF</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDHF.Gradients"><code class="docutils literal notranslate"><span class="pre">TDHF.Gradients()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDHF.gen_vind"><code class="docutils literal notranslate"><span class="pre">TDHF.gen_vind()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDHF.init_guess"><code class="docutils literal notranslate"><span class="pre">TDHF.init_guess()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDHF.kernel"><code class="docutils literal notranslate"><span class="pre">TDHF.kernel()</span></code></a></li>
@@ -6403,14 +6403,10 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDMixin"><code class="docutils literal notranslate"><span class="pre">TDMixin</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDMixin.DDCOSMO"><code class="docutils literal notranslate"><span class="pre">TDMixin.DDCOSMO()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDMixin.DDPCM"><code class="docutils literal notranslate"><span class="pre">TDMixin.DDPCM()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDMixin.analyze"><code class="docutils literal notranslate"><span class="pre">TDMixin.analyze()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDMixin.as_scanner"><code class="docutils literal notranslate"><span class="pre">TDMixin.as_scanner()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDMixin.check_sanity"><code class="docutils literal notranslate"><span class="pre">TDMixin.check_sanity()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDMixin.conv_tol"><code class="docutils literal notranslate"><span class="pre">TDMixin.conv_tol</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDMixin.ddCOSMO"><code class="docutils literal notranslate"><span class="pre">TDMixin.ddCOSMO()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDMixin.ddPCM"><code class="docutils literal notranslate"><span class="pre">TDMixin.ddPCM()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDMixin.dump_flags"><code class="docutils literal notranslate"><span class="pre">TDMixin.dump_flags()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDMixin.e_tot"><code class="docutils literal notranslate"><span class="pre">TDMixin.e_tot</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rhf.TDMixin.gen_vind"><code class="docutils literal notranslate"><span class="pre">TDMixin.gen_vind()</span></code></a></li>
@@ -6492,12 +6488,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rks.RPA"><code class="docutils literal notranslate"><span class="pre">RPA</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rks.TDA"><code class="docutils literal notranslate"><span class="pre">TDA</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rks.TDA.Gradients"><code class="docutils literal notranslate"><span class="pre">TDA.Gradients()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rks.TDA.nuc_grad_method"><code class="docutils literal notranslate"><span class="pre">TDA.nuc_grad_method()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rks.TDDFT"><code class="docutils literal notranslate"><span class="pre">TDDFT</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rks.TDDFT.Gradients"><code class="docutils literal notranslate"><span class="pre">TDDFT.Gradients()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.rks.TDDFT.nuc_grad_method"><code class="docutils literal notranslate"><span class="pre">TDDFT.nuc_grad_method()</span></code></a></li>
 </ul>
 </li>
@@ -6513,7 +6507,6 @@
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uhf.CIS"><code class="docutils literal notranslate"><span class="pre">CIS</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uhf.RPA"><code class="docutils literal notranslate"><span class="pre">RPA</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uhf.TDA"><code class="docutils literal notranslate"><span class="pre">TDA</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uhf.TDA.Gradients"><code class="docutils literal notranslate"><span class="pre">TDA.Gradients()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uhf.TDA.gen_vind"><code class="docutils literal notranslate"><span class="pre">TDA.gen_vind()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uhf.TDA.init_guess"><code class="docutils literal notranslate"><span class="pre">TDA.init_guess()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uhf.TDA.kernel"><code class="docutils literal notranslate"><span class="pre">TDA.kernel()</span></code></a></li>
@@ -6521,7 +6514,6 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uhf.TDHF"><code class="docutils literal notranslate"><span class="pre">TDHF</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uhf.TDHF.Gradients"><code class="docutils literal notranslate"><span class="pre">TDHF.Gradients()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uhf.TDHF.gen_vind"><code class="docutils literal notranslate"><span class="pre">TDHF.gen_vind()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uhf.TDHF.init_guess"><code class="docutils literal notranslate"><span class="pre">TDHF.init_guess()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uhf.TDHF.kernel"><code class="docutils literal notranslate"><span class="pre">TDHF.kernel()</span></code></a></li>
@@ -6554,12 +6546,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uks.RPA"><code class="docutils literal notranslate"><span class="pre">RPA</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uks.TDA"><code class="docutils literal notranslate"><span class="pre">TDA</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uks.TDA.Gradients"><code class="docutils literal notranslate"><span class="pre">TDA.Gradients()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uks.TDA.nuc_grad_method"><code class="docutils literal notranslate"><span class="pre">TDA.nuc_grad_method()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uks.TDDFT"><code class="docutils literal notranslate"><span class="pre">TDDFT</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uks.TDDFT.Gradients"><code class="docutils literal notranslate"><span class="pre">TDDFT.Gradients()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyscf.tdscf.html#pyscf.tdscf.uks.TDDFT.nuc_grad_method"><code class="docutils literal notranslate"><span class="pre">TDDFT.nuc_grad_method()</span></code></a></li>
 </ul>
 </li>
@@ -6876,7 +6866,7 @@ to try out the package:</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../contributing.html" title="How to contribute"
+            <a href="../develop/cisd.html" title="Molecular CISD"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -6885,7 +6875,7 @@ to try out the package:</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> How to contribute </span>
+                      class="md-footer-nav__direction"> "Previous" </span> Molecular CISD </span>
               </div>
             </a>
           
