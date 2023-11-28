@@ -49,7 +49,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/pyscf.css?v=9b431c29" />
-    <script src="../../../../_static/documentation_options.js?v=c3c8ae58"></script>
+    <script src="../../../../_static/documentation_options.js?v=4d935f96"></script>
     <script src="../../../../_static/doctools.js?v=888ff710"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -92,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.3</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.pbc.df.aft </span>
         </div>
       </div>
@@ -199,7 +199,7 @@
       
     </a>
     <a href="../../../../index.html"
-       title="PySCF">PySCF 2.3</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -331,7 +331,6 @@
 <span class="sd">'''Density expansion on plane waves'''</span>
 
 
-<span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">contextlib</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">lib</span>
@@ -355,7 +354,7 @@
 <span class="n">RCUT_THRESHOLD</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'pbc_scf_rsjk_rcut_threshold'</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
 
 <div class="viewcode-block" id="estimate_eta_min">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.estimate_eta_min">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.estimate_eta_min">[docs]</a>
 <span class="k">def</span> <span class="nf">estimate_eta_min</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''Given rcut the boundary of repeated images of the cell, estimates the</span>
 <span class="sd">    minimal exponent of the smooth compensated gaussian model charge, requiring</span>
@@ -370,7 +369,7 @@
 <span class="n">estimate_eta</span> <span class="o">=</span> <span class="n">estimate_eta_min</span>
 
 <div class="viewcode-block" id="estimate_eta_for_ke_cutoff">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.estimate_eta_for_ke_cutoff">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.estimate_eta_for_ke_cutoff">[docs]</a>
 <span class="k">def</span> <span class="nf">estimate_eta_for_ke_cutoff</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ke_cutoff</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''Given ke_cutoff, the upper bound of eta to produce the required</span>
 <span class="sd">    precision in AFTDF Coulomb integrals.</span>
@@ -382,7 +381,7 @@
 
 
 <div class="viewcode-block" id="estimate_ke_cutoff_for_eta">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.estimate_ke_cutoff_for_eta">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.estimate_ke_cutoff_for_eta">[docs]</a>
 <span class="k">def</span> <span class="nf">estimate_ke_cutoff_for_eta</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''Given eta, the lower bound of ke_cutoff to produce the required</span>
 <span class="sd">    precision in AFTDF Coulomb integrals.</span>
@@ -394,7 +393,7 @@
 
 
 <div class="viewcode-block" id="estimate_omega_min">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.estimate_omega_min">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.estimate_omega_min">[docs]</a>
 <span class="k">def</span> <span class="nf">estimate_omega_min</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''Given cell.rcut the boundary of repeated images of the cell, estimates</span>
 <span class="sd">    the minimal omega for the attenuated Coulomb interactions, requiring that at</span>
@@ -409,7 +408,7 @@
 <span class="n">estimate_omega</span> <span class="o">=</span> <span class="n">estimate_omega_min</span>
 
 <div class="viewcode-block" id="estimate_ke_cutoff_for_omega">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.estimate_ke_cutoff_for_omega">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.estimate_ke_cutoff_for_omega">[docs]</a>
 <span class="k">def</span> <span class="nf">estimate_ke_cutoff_for_omega</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''Energy cutoff for AFTDF to converge attenuated Coulomb in moment space</span>
 <span class="sd">    '''</span>
@@ -420,7 +419,7 @@
 
 
 <div class="viewcode-block" id="estimate_omega_for_ke_cutoff">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.estimate_omega_for_ke_cutoff">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.estimate_omega_for_ke_cutoff">[docs]</a>
 <span class="k">def</span> <span class="nf">estimate_omega_for_ke_cutoff</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ke_cutoff</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''The minimal omega in attenuated Coulombl given energy cutoff</span>
 <span class="sd">    '''</span>
@@ -511,7 +510,7 @@
     <span class="k">raise</span> <span class="ne">DeprecationWarning</span>
 
 <div class="viewcode-block" id="get_pp">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.get_pp">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.get_pp">[docs]</a>
 <span class="k">def</span> <span class="nf">get_pp</span><span class="p">(</span><span class="n">mydf</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''Get the periodic pseudotential nuc-el AO matrix, with G=0 removed.</span>
 
@@ -537,7 +536,7 @@
 
 
 <div class="viewcode-block" id="get_nuc">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.get_nuc">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.get_nuc">[docs]</a>
 <span class="k">def</span> <span class="nf">get_nuc</span><span class="p">(</span><span class="n">mydf</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''Get the periodic nuc-el AO matrix, with G=0 removed.</span>
 
@@ -552,7 +551,7 @@
 
 
 <div class="viewcode-block" id="weighted_coulG">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.weighted_coulG">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.weighted_coulG">[docs]</a>
 <span class="k">def</span> <span class="nf">weighted_coulG</span><span class="p">(</span><span class="n">mydf</span><span class="p">,</span> <span class="n">kpt</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">exx</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mesh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''Weighted regular Coulomb kernel, applying cell.omega by default'''</span>
     <span class="n">cell</span> <span class="o">=</span> <span class="n">mydf</span><span class="o">.</span><span class="n">cell</span>
@@ -570,7 +569,7 @@
 <span class="k">def</span> <span class="nf">_fake_nuc</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">with_pseudo</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''A fake cell with steep gaussians to mimic nuclear density</span>
 <span class="sd">    '''</span>
-    <span class="n">fakenuc</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
+    <span class="n">fakenuc</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">fakenuc</span><span class="o">.</span><span class="n">_atm</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">_atm</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">fakenuc</span><span class="o">.</span><span class="n">_atm</span><span class="p">[:,</span><span class="n">gto</span><span class="o">.</span><span class="n">PTR_COORD</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">gto</span><span class="o">.</span><span class="n">PTR_ENV_START</span><span class="p">,</span>
                                               <span class="n">gto</span><span class="o">.</span><span class="n">PTR_ENV_START</span><span class="o">+</span><span class="n">cell</span><span class="o">.</span><span class="n">natm</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -611,7 +610,7 @@
     <span class="k">return</span> <span class="n">Ecut</span>
 
 <div class="viewcode-block" id="estimate_ke_cutoff">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.estimate_ke_cutoff">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.estimate_ke_cutoff">[docs]</a>
 <span class="k">def</span> <span class="nf">estimate_ke_cutoff</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''Energy cutoff estimation for 4-center Coulomb repulsion integrals'''</span>
     <span class="k">if</span> <span class="n">cell</span><span class="o">.</span><span class="n">nbas</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -744,14 +743,14 @@
 
 
 <div class="viewcode-block" id="AFTDFMixin">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.AFTDFMixin">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.AFTDFMixin">[docs]</a>
 <span class="k">class</span> <span class="nc">AFTDFMixin</span><span class="p">:</span>
 
     <span class="n">weighted_coulG</span> <span class="o">=</span> <span class="n">weighted_coulG</span>
     <span class="n">_int_nuc_vloc</span> <span class="o">=</span> <span class="n">_int_nuc_vloc</span>
 
 <div class="viewcode-block" id="AFTDFMixin.pw_loop">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.AFTDFMixin.pw_loop">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.AFTDFMixin.pw_loop">[docs]</a>
     <span class="k">def</span> <span class="nf">pw_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mesh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kpti_kptj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">max_memory</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">aosym</span><span class="o">=</span><span class="s1">'s1'</span><span class="p">,</span> <span class="n">blksize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">intor</span><span class="o">=</span><span class="s1">'GTO_ft_ovlp'</span><span class="p">,</span> <span class="n">comp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bvk_kmesh</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -823,7 +822,7 @@
 
 
 <div class="viewcode-block" id="AFTDFMixin.ft_loop">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.AFTDFMixin.ft_loop">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.AFTDFMixin.ft_loop">[docs]</a>
     <span class="k">def</span> <span class="nf">ft_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mesh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">max_memory</span><span class="o">=</span><span class="mi">4000</span><span class="p">,</span> <span class="n">aosym</span><span class="o">=</span><span class="s1">'s1'</span><span class="p">,</span> <span class="n">intor</span><span class="o">=</span><span class="s1">'GTO_ft_ovlp'</span><span class="p">,</span> <span class="n">comp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                 <span class="n">bvk_kmesh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_complex</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -878,7 +877,7 @@
 
 
 <div class="viewcode-block" id="AFTDFMixin.range_coulomb">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.AFTDFMixin.range_coulomb">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.AFTDFMixin.range_coulomb">[docs]</a>
     <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
     <span class="k">def</span> <span class="nf">range_coulomb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">'''Creates a temporary density fitting object for RSH-DF integrals.</span>
@@ -888,7 +887,7 @@
         <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rsh_df</span><span class="p">:</span>
             <span class="n">rsh_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rsh_df</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">rsh_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rsh_df</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+            <span class="n">rsh_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rsh_df</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
             <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'_dataname'</span><span class="p">):</span>
                 <span class="n">rsh_df</span><span class="o">.</span><span class="n">_dataname</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataname</span><span class="si">}</span><span class="s1">/lr/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">'</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'Create RSH-DF object </span><span class="si">%s</span><span class="s1"> for omega=</span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">rsh_df</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
@@ -918,10 +917,15 @@
 
 
 <div class="viewcode-block" id="AFTDF">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.AFTDF">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.AFTDF">[docs]</a>
 <span class="k">class</span> <span class="nc">AFTDF</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">StreamObject</span><span class="p">,</span> <span class="n">AFTDFMixin</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''Density expansion on plane waves</span>
 <span class="sd">    '''</span>
+
+    <span class="n">_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span>
+        <span class="s1">'cell'</span><span class="p">,</span> <span class="s1">'mesh'</span><span class="p">,</span> <span class="s1">'kpts'</span><span class="p">,</span> <span class="s1">'time_reversal_symmetry'</span><span class="p">,</span> <span class="s1">'blockdim'</span><span class="p">,</span>
+    <span class="p">))</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cell</span> <span class="o">=</span> <span class="n">cell</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">stdout</span>
@@ -936,10 +940,9 @@
 
         <span class="c1"># The following attributes are not input options.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rsh_df</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Range separated Coulomb DF objects</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 
 <div class="viewcode-block" id="AFTDF.dump_flags">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.AFTDF.dump_flags">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.AFTDF.dump_flags">[docs]</a>
     <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'******** </span><span class="si">%s</span><span class="s1"> ********'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
@@ -950,7 +953,7 @@
 
 
 <div class="viewcode-block" id="AFTDF.reset">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.AFTDF.reset">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.AFTDF.reset">[docs]</a>
     <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">cell</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cell</span> <span class="o">=</span> <span class="n">cell</span>
@@ -959,7 +962,7 @@
 
 
 <div class="viewcode-block" id="AFTDF.check_sanity">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.AFTDF.check_sanity">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.AFTDF.check_sanity">[docs]</a>
     <span class="k">def</span> <span class="nf">check_sanity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">lib</span><span class="o">.</span><span class="n">StreamObject</span><span class="o">.</span><span class="n">check_sanity</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">cell</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell</span>
@@ -1011,7 +1014,7 @@
 
 
 <div class="viewcode-block" id="AFTDF.build">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.AFTDF.build">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.AFTDF.build">[docs]</a>
     <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_sanity</span><span class="p">()</span></div>
 
@@ -1025,7 +1028,7 @@
     <span class="c1"># core DM in CASCI). An SCF level exxdiv treatment is inadequate for</span>
     <span class="c1"># post-HF methods.</span>
 <div class="viewcode-block" id="AFTDF.get_jk">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.AFTDF.get_jk">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.AFTDF.get_jk">[docs]</a>
     <span class="k">def</span> <span class="nf">get_jk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">hermi</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kpts_band</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                <span class="n">with_j</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_k</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exxdiv</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">omega</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># J/K for RSH functionals</span>
@@ -1053,15 +1056,15 @@
     <span class="n">get_mo_pairs_G</span> <span class="o">=</span> <span class="n">get_mo_pairs</span> <span class="o">=</span> <span class="n">aft_ao2mo</span><span class="o">.</span><span class="n">get_mo_pairs_G</span>
 
 <div class="viewcode-block" id="AFTDF.update_mf">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.AFTDF.update_mf">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.AFTDF.update_mf">[docs]</a>
     <span class="k">def</span> <span class="nf">update_mf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mf</span><span class="p">):</span>
-        <span class="n">mf</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">mf</span><span class="p">)</span>
+        <span class="n">mf</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">mf</span><span class="o">.</span><span class="n">with_df</span> <span class="o">=</span> <span class="bp">self</span>
         <span class="k">return</span> <span class="n">mf</span></div>
 
 
 <div class="viewcode-block" id="AFTDF.prange">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.AFTDF.prange">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.AFTDF.prange">[docs]</a>
     <span class="k">def</span> <span class="nf">prange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">'''This is a hook for MPI parallelization. DO NOT use it out of the</span>
 <span class="sd">        scope of AFTDF/GDF/MDF.</span>
@@ -1073,7 +1076,7 @@
 <span class="c1"># With this function to mimic the molecular DF.loop function, the pbc gamma</span>
 <span class="c1"># point DF object can be used in the molecular code</span>
 <div class="viewcode-block" id="AFTDF.loop">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.AFTDF.loop">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.AFTDF.loop">[docs]</a>
     <span class="k">def</span> <span class="nf">loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blksize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">cell</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell</span>
         <span class="k">if</span> <span class="n">cell</span><span class="o">.</span><span class="n">dimension</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">cell</span><span class="o">.</span><span class="n">low_dim_ft_type</span> <span class="o">!=</span> <span class="s1">'inf_vacuum'</span><span class="p">:</span>
@@ -1097,7 +1100,7 @@
 
 
 <div class="viewcode-block" id="AFTDF.get_naoaux">
-<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.scf.rsjk.AFTDF.get_naoaux">[docs]</a>
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.aft.AFTDF.get_naoaux">[docs]</a>
     <span class="k">def</span> <span class="nf">get_naoaux</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">mesh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mesh</span><span class="p">)</span>
         <span class="n">ngrids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>

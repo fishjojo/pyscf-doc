@@ -50,7 +50,7 @@
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="_static/css/pyscf.css?v=9b431c29" />
-    <script src="_static/documentation_options.js?v=c3c8ae58"></script>
+    <script src="_static/documentation_options.js?v=4d935f96"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -97,7 +97,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.3</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> Quickstart </span>
         </div>
       </div>
@@ -202,7 +202,7 @@
       
     </a>
     <a href="index.html"
-       title="PySCF">PySCF 2.3</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -847,7 +847,7 @@ same way as the regular <code class="xref py py-class docutils literal notransla
 <h2 id="solvent-effects">Solvent Effects<a class="headerlink" href="#solvent-effects" title="Link to this heading">¶</a></h2>
 <section id="polarizable-continuum-cosmo-methods">
 <span id="pcmcosmo"></span><h3 id="polarizable-continuum-cosmo-methods">Polarizable Continuum &amp; COSMO Methods<a class="headerlink" href="#polarizable-continuum-cosmo-methods" title="Link to this heading">¶</a></h3>
-<p>PySCF can include solvent effects into most types of calculations, as implemented by either PCM or COSMO (both in their <a class="reference external" href="https://www.ddpcm.org/">domain-decomposed formulations</a> that yields a fast discretization of the polarization equations). For instance, <a class="reference internal" href="interface/geomopt.html#geomopt"><span class="std std-ref">geometry optimizations</span></a> can be performed for ground and excited states in the presence of a solvent (cf. <a class="reference external" href="https://github.com/pyscf/pyscf/blob/master/examples/solvent/21-tddft_geomopt.py">solvent/21-tddft_geomopt.py</a>):</p>
+<p>PySCF can include solvent effects into most types of calculations, as implemented by either PCM or COSMO (both in their <a class="reference external" href="https://www.ddpcm.org/">domain-decomposed formulations</a> that yields a fast discretization of the polarization equations). For instance, <a class="reference internal" href="#geomopt"><span class="std std-ref">geometry optimizations</span></a> can be performed for ground and excited states in the presence of a solvent (cf. <a class="reference external" href="https://github.com/pyscf/pyscf/blob/master/examples/solvent/21-tddft_geomopt.py">solvent/21-tddft_geomopt.py</a>):</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rhf_h2o_pcm</span> <span class="o">=</span> <span class="n">mol_h2o</span><span class="o">.</span><span class="n">RHF</span><span class="p">()</span><span class="o">.</span><span class="n">ddPCM</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rhf_h2o_pcm</span><span class="o">.</span><span class="n">kernel</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tdhf_h2o_pcm</span> <span class="o">=</span> <span class="n">rhf_h2o_pcm</span><span class="o">.</span><span class="n">TDA</span><span class="p">()</span><span class="o">.</span><span class="n">ddPCM</span><span class="p">()</span>
