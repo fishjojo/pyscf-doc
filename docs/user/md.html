@@ -50,8 +50,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/css/pyscf.css?v=9b431c29" />
-    <script src="../_static/documentation_options.js?v=4d935f96"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -97,7 +97,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.4</span>
+          <span class="md-header-nav__topic">PySCF 2.5</span>
           <span class="md-header-nav__topic"> Molecular Dynamics </span>
         </div>
       </div>
@@ -203,7 +203,7 @@
       
     </a>
     <a href="../index.html"
-       title="PySCF">PySCF 2.4</a>
+       title="PySCF">PySCF 2.5</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -437,6 +437,13 @@
     <li class="md-nav__item">
     
     
+      <a href="gpu.html" class="md-nav__link">GPU Acceleration (GPU4PySCF)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="reference.html" class="md-nav__link">References</a>
       
     
@@ -534,7 +541,7 @@ The MD module in PySCF supports both NVE and NVT ensemble integrations. A simple
 <span class="c1"># or for 50 a.u.</span>
 <span class="n">myintegrator</span> <span class="o">=</span> <span class="n">pyscf</span><span class="o">.</span><span class="n">md</span><span class="o">.</span><span class="n">NVE</span><span class="p">(</span><span class="n">myscanner</span><span class="p">,</span>
                             <span class="n">dt</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-                            <span class="n">steps</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                            <span class="n">steps</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
                             <span class="n">data_output</span><span class="o">=</span><span class="s2">"BOMD.md.data"</span><span class="p">,</span>
                             <span class="n">trajectory_output</span><span class="o">=</span><span class="s2">"BOMD.md.xyz"</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
@@ -690,7 +697,7 @@ The BOMD.md.data will look like</p>
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

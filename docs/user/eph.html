@@ -50,8 +50,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/css/pyscf.css?v=9b431c29" />
-    <script src="../_static/documentation_options.js?v=4d935f96"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="icon" href="../_static/favicon-32x32.png"/>
@@ -95,7 +95,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.4</span>
+          <span class="md-header-nav__topic">PySCF 2.5</span>
           <span class="md-header-nav__topic"> Electron-phonon coupling </span>
         </div>
       </div>
@@ -201,7 +201,7 @@
       
     </a>
     <a href="../index.html"
-       title="PySCF">PySCF 2.4</a>
+       title="PySCF">PySCF 2.5</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -447,6 +447,13 @@
     <li class="md-nav__item">
     
     
+      <a href="gpu.html" class="md-nav__link">GPU Acceleration (GPU4PySCF)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="reference.html" class="md-nav__link">References</a>
       
     
@@ -532,7 +539,7 @@
 <p>Because nuclei are much heavier than the electrons, one usually assumes the Born-Oppenheimer (BO) approximation, which
 defines an adiabatic electronic wavefunction for fixed nuclear positions. However, this approximation breaks down when the electronic states both change very rapidly with nuclear position and approach each other in energy.</p>
 <p>To move beyond the BO approximation, one can assume that the electrons experience the moving nuclei as a perturbation of the external potential. Carrying out an expansion to linear order in nuclear positions and assuming quadratic nuclear motion around the minimum leads to an approximate Hamiltonian for the electron and nuclear motion
-known as the linear electron-phonon coupling approximation. When deriving this Hamiltonian, the electronic degrees of freedom are assumed to be treated within a mean-field theory. This approximation is widely used in solid state calculations to model phenomena arising from coupled electron/nuclear motion (see <span id="id1">[<a class="reference internal" href="reference.html#id34" title="Feliciano Giustino. Electron-phonon interactions from first principles. Rev. Mod. Phys., 89:015003, 2017.">67</a>]</span> for more discussion).</p>
+known as the linear electron-phonon coupling approximation. When deriving this Hamiltonian, the electronic degrees of freedom are assumed to be treated within a mean-field theory. This approximation is widely used in solid state calculations to model phenomena arising from coupled electron/nuclear motion (see <span id="id1">[<a class="reference internal" href="reference.html#id34" title="Feliciano Giustino. Electron-phonon interactions from first principles. Rev. Mod. Phys., 89:015003, 2017.">69</a>]</span> for more discussion).</p>
 <p>PySCF supports the calculation of the first-order electron-phonon (e-ph) coupling matrix elements using either coupled perturbed Kohn-Sham/Hartree-Fock (CPKS/CPHF) or finite differences. In periodic systems, only FFTDF-based Gamma-point calculations are supported by the finite difference implementation. In both cases, a geometrically relaxed structure is required for the consistency of the theory.</p>
 <p>A minimal example of an analytical e-ph matrix calculation is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">gto</span><span class="p">,</span> <span class="n">scf</span><span class="p">,</span> <span class="n">eph</span>
@@ -667,7 +674,7 @@ as follows:</p>
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
