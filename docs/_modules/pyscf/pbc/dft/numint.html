@@ -15,28 +15,31 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/pyscf-pst.css?v=ed6b5f64" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../../../_static/documentation_options.js?v=3db9c557"></script>
+    <script src="../../../../_static/documentation_options.js?v=dfec817d"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
@@ -48,6 +51,7 @@
     <link rel="search" title="Search" href="../../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2.7" />
   </head>
   
   
@@ -63,19 +67,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../../search.html"
       method="get">
@@ -83,7 +76,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -91,8 +83,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -126,7 +118,7 @@
     
     
     <img src="../../../../_static/logo-64x64.png" class="logo__image only-light" alt=""/>
-    <script>document.write(`<img src="../../../../_static/logo-64x64.png" class="logo__image only-dark" alt=""/>`);</script>
+    <img src="../../../../_static/logo-64x64.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
     <p class="title logo__title">PySCF</p>
@@ -188,29 +180,21 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -235,15 +219,11 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
@@ -260,7 +240,8 @@ document.write(`
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -321,15 +302,11 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -373,10 +350,6 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -389,12 +362,12 @@ document.write(`
     <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
     
     
-    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
+    <li class="breadcrumb-item"><a href="../../../pyscf.html" class="nav-link">pyscf</a></li>
     
     
     <li class="breadcrumb-item"><a href="../dft.html" class="nav-link">pyscf.pbc.dft</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">pyscf.pbc.dft.numint</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pyscf.pbc.dft.numint</span></li>
   </ul>
 </nav>
 </div>
@@ -701,7 +674,8 @@ document.write(`
                     <span class="n">rho</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">-=</span> <span class="n">rho5</span> <span class="o">*</span> <span class="mi">2</span>
                 <span class="n">rho</span><span class="p">[</span><span class="n">tau_idx</span><span class="p">]</span> <span class="o">-=</span> <span class="n">rho5</span> <span class="o">*</span> <span class="mf">.5</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">rho</span> <span class="o">=</span> <span class="n">numint</span><span class="o">.</span><span class="n">eval_rho2</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">,</span> <span class="n">non0tab</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+        <span class="n">rho</span> <span class="o">=</span> <span class="n">numint</span><span class="o">.</span><span class="n">eval_rho2</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">,</span> <span class="n">non0tab</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span>
+                               <span class="n">with_lapl</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">rho</span></div>
 
 
@@ -908,7 +882,7 @@ document.write(`
                 <span class="n">vmata</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">ni</span><span class="o">.</span><span class="n">_vxc_mat</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">wv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span>
                                         <span class="n">shls_slice</span><span class="p">,</span> <span class="n">ao_loc</span><span class="p">,</span> <span class="n">v_hermi</span><span class="p">)</span>
                 <span class="n">vmatb</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">ni</span><span class="o">.</span><span class="n">_vxc_mat</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">wv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span>
-                                        <span class="n">shls_slice</span><span class="p">,</span> <span class="n">ao_loc</span><span class="p">,</span> <span class="n">hermi</span><span class="p">)</span>
+                                        <span class="n">shls_slice</span><span class="p">,</span> <span class="n">ao_loc</span><span class="p">,</span> <span class="n">v_hermi</span><span class="p">)</span>
 
         <span class="n">vmat</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">vmata</span><span class="p">,</span> <span class="n">vmatb</span><span class="p">])</span>
         <span class="c1"># call swapaxes method to swap last two indices because vmat may be a 3D</span>
@@ -1073,11 +1047,12 @@ document.write(`
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">kpts</span><span class="p">,</span> <span class="n">KPoints</span><span class="p">):</span>
         <span class="n">kpts</span> <span class="o">=</span> <span class="n">kpts</span><span class="o">.</span><span class="n">kpts_ibz</span>
 
+    <span class="n">v_hermi</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="n">is_zero</span><span class="p">(</span><span class="n">kpts</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dms</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="n">dms</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">numpy</span><span class="o">.</span><span class="n">double</span><span class="p">:</span>
             <span class="c1"># for real orbitals and real matrix, K_{ia,bj} = K_{ia,jb}</span>
             <span class="c1"># The output matrix v = K*x_{ia} is symmetric</span>
-            <span class="n">hermi</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">v_hermi</span> <span class="o">=</span> <span class="mi">1</span>
 
     <span class="k">if</span> <span class="n">xctype</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;LDA&#39;</span><span class="p">,</span> <span class="s1">&#39;GGA&#39;</span><span class="p">,</span> <span class="s1">&#39;MGGA&#39;</span><span class="p">):</span>
         <span class="n">make_rho</span><span class="p">,</span> <span class="n">nset</span><span class="p">,</span> <span class="n">nao</span> <span class="o">=</span> <span class="n">ni</span><span class="o">.</span><span class="n">_gen_rho_evaluator</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">dms</span><span class="p">,</span> <span class="n">hermi</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
@@ -1097,10 +1072,10 @@ document.write(`
                     <span class="n">vxc1</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">&#39;xg,xyg-&gt;yg&#39;</span><span class="p">,</span> <span class="n">rho1</span><span class="p">,</span> <span class="n">_fxc</span><span class="p">)</span>
                 <span class="n">wv</span> <span class="o">=</span> <span class="n">weight</span> <span class="o">*</span> <span class="n">vxc1</span>
                 <span class="n">vmat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">ni</span><span class="o">.</span><span class="n">_vxc_mat</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">wv</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span>
-                                       <span class="n">shls_slice</span><span class="p">,</span> <span class="n">ao_loc</span><span class="p">,</span> <span class="n">hermi</span><span class="p">)</span>
+                                       <span class="n">shls_slice</span><span class="p">,</span> <span class="n">ao_loc</span><span class="p">,</span> <span class="n">v_hermi</span><span class="p">)</span>
 
         <span class="n">vmat</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">vmat</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">hermi</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v_hermi</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="c1"># call swapaxes method to swap last two indices because vmat may be a 3D</span>
             <span class="c1"># array (nset,nao,nao) in single k-point mode or a 4D array</span>
             <span class="c1"># (nset,nkpts,nao,nao) in k-points mode</span>
@@ -1202,10 +1177,11 @@ document.write(`
         <span class="n">kpts</span> <span class="o">=</span> <span class="n">kpts</span><span class="o">.</span><span class="n">kpts_ibz</span>
 
     <span class="n">dma</span><span class="p">,</span> <span class="n">dmb</span> <span class="o">=</span> <span class="n">_format_uks_dm</span><span class="p">(</span><span class="n">dms</span><span class="p">)</span>
+    <span class="n">v_hermi</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="n">is_zero</span><span class="p">(</span><span class="n">kpts</span><span class="p">)</span> <span class="ow">and</span> <span class="n">dma</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">numpy</span><span class="o">.</span><span class="n">double</span><span class="p">:</span>
         <span class="c1"># for real orbitals and real matrix, K_{ia,bj} = K_{ia,jb}</span>
         <span class="c1"># The output matrix v = K*x_{ia} is symmetric</span>
-        <span class="n">hermi</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">v_hermi</span> <span class="o">=</span> <span class="mi">1</span>
 
     <span class="n">nao</span> <span class="o">=</span> <span class="n">dma</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">make_rhoa</span><span class="p">,</span> <span class="n">nset</span> <span class="o">=</span> <span class="n">ni</span><span class="o">.</span><span class="n">_gen_rho_evaluator</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">dma</span><span class="p">,</span> <span class="n">hermi</span><span class="p">,</span> <span class="kc">False</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]</span>
@@ -1225,19 +1201,19 @@ document.write(`
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nset</span><span class="p">):</span>
                 <span class="n">rho1a</span> <span class="o">=</span> <span class="n">make_rhoa</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">)</span>
                 <span class="n">rho1b</span> <span class="o">=</span> <span class="n">make_rhob</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">)</span>
-                <span class="n">rho1</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">rho1a</span><span class="p">,</span> <span class="n">rho1b</span><span class="p">])</span>
                 <span class="k">if</span> <span class="n">xctype</span> <span class="o">==</span> <span class="s1">&#39;LDA&#39;</span><span class="p">:</span>
-                    <span class="n">vxc1</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">&#39;ag,abyg-&gt;byg&#39;</span><span class="p">,</span> <span class="n">rho1</span><span class="p">,</span> <span class="n">_fxc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">,:])</span>
+                    <span class="n">wv</span> <span class="o">=</span> <span class="n">rho1a</span> <span class="o">*</span> <span class="n">_fxc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">rho1b</span> <span class="o">*</span> <span class="n">_fxc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">vxc1</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">&#39;axg,axbyg-&gt;byg&#39;</span><span class="p">,</span> <span class="n">rho1</span><span class="p">,</span> <span class="n">_fxc</span><span class="p">)</span>
-                <span class="n">wv</span> <span class="o">=</span> <span class="n">weight</span> <span class="o">*</span> <span class="n">vxc1</span>
+                    <span class="n">wv</span>  <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">&#39;xg,xbyg-&gt;byg&#39;</span><span class="p">,</span> <span class="n">rho1a</span><span class="p">,</span> <span class="n">_fxc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">wv</span> <span class="o">+=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">&#39;xg,xbyg-&gt;byg&#39;</span><span class="p">,</span> <span class="n">rho1b</span><span class="p">,</span> <span class="n">_fxc</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">wv</span> <span class="o">*=</span> <span class="n">weight</span>
                 <span class="n">vmata</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">ni</span><span class="o">.</span><span class="n">_vxc_mat</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">wv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span>
-                                        <span class="n">shls_slice</span><span class="p">,</span> <span class="n">ao_loc</span><span class="p">,</span> <span class="n">hermi</span><span class="p">)</span>
+                                        <span class="n">shls_slice</span><span class="p">,</span> <span class="n">ao_loc</span><span class="p">,</span> <span class="n">v_hermi</span><span class="p">)</span>
                 <span class="n">vmatb</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">ni</span><span class="o">.</span><span class="n">_vxc_mat</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">wv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span>
-                                        <span class="n">shls_slice</span><span class="p">,</span> <span class="n">ao_loc</span><span class="p">,</span> <span class="n">hermi</span><span class="p">)</span>
+                                        <span class="n">shls_slice</span><span class="p">,</span> <span class="n">ao_loc</span><span class="p">,</span> <span class="n">v_hermi</span><span class="p">)</span>
 
         <span class="n">vmat</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">vmata</span><span class="p">,</span> <span class="n">vmatb</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">hermi</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v_hermi</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">vmat</span> <span class="o">=</span> <span class="n">vmat</span> <span class="o">+</span> <span class="n">vmat</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">nset</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">vmat</span> <span class="o">=</span> <span class="n">vmat</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,)</span> <span class="o">+</span> <span class="n">dma</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -1298,12 +1274,13 @@ document.write(`
     <span class="k">else</span><span class="p">:</span>
         <span class="n">is_rhf</span> <span class="o">=</span> <span class="n">mo_coeff</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span>
 
+    <span class="n">with_lapl</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="n">nao</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">nao_nr</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">is_rhf</span><span class="p">:</span>
         <span class="n">rho</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">ao_k2</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">coords</span> \
                 <span class="ow">in</span> <span class="n">ni</span><span class="o">.</span><span class="n">block_loop</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">grids</span><span class="p">,</span> <span class="n">nao</span><span class="p">,</span> <span class="n">ao_deriv</span><span class="p">,</span> <span class="n">kpts</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_memory</span><span class="p">):</span>
-            <span class="n">rho</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ni</span><span class="o">.</span><span class="n">eval_rho2</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">))</span>
+            <span class="n">rho</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ni</span><span class="o">.</span><span class="n">eval_rho2</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">with_lapl</span><span class="p">))</span>
         <span class="n">rho</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">spin</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">rho</span> <span class="o">*=</span> <span class="mf">.5</span>
@@ -1314,8 +1291,8 @@ document.write(`
         <span class="n">rhob</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">ao_k2</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">coords</span> \
                 <span class="ow">in</span> <span class="n">ni</span><span class="o">.</span><span class="n">block_loop</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">grids</span><span class="p">,</span> <span class="n">nao</span><span class="p">,</span> <span class="n">ao_deriv</span><span class="p">,</span> <span class="n">kpts</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_memory</span><span class="p">):</span>
-            <span class="n">rhoa</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ni</span><span class="o">.</span><span class="n">eval_rho2</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mo_occ</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">))</span>
-            <span class="n">rhob</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ni</span><span class="o">.</span><span class="n">eval_rho2</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mo_occ</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">))</span>
+            <span class="n">rhoa</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ni</span><span class="o">.</span><span class="n">eval_rho2</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mo_occ</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">with_lapl</span><span class="p">))</span>
+            <span class="n">rhob</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ni</span><span class="o">.</span><span class="n">eval_rho2</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mo_occ</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">with_lapl</span><span class="p">))</span>
         <span class="n">rho</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">rhoa</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">rhob</span><span class="p">)])</span>
     <span class="n">vxc</span><span class="p">,</span> <span class="n">fxc</span> <span class="o">=</span> <span class="n">ni</span><span class="o">.</span><span class="n">eval_xc_eff</span><span class="p">(</span><span class="n">xc_code</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">deriv</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">xctype</span><span class="o">=</span><span class="n">xctype</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">rho</span><span class="p">,</span> <span class="n">vxc</span><span class="p">,</span> <span class="n">fxc</span></div>
@@ -1347,12 +1324,13 @@ document.write(`
 
     <span class="c1"># 0th order density matrix must be hermitian</span>
     <span class="n">hermi</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">with_lapl</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="n">nao</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">nao_nr</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">is_rhf</span><span class="p">:</span>
         <span class="n">rho</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">ao_k2</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">coords</span> \
                 <span class="ow">in</span> <span class="n">ni</span><span class="o">.</span><span class="n">block_loop</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">grids</span><span class="p">,</span> <span class="n">nao</span><span class="p">,</span> <span class="n">ao_deriv</span><span class="p">,</span> <span class="n">kpts</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_memory</span><span class="p">):</span>
-            <span class="n">rho</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ni</span><span class="o">.</span><span class="n">eval_rho1</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">hermi</span><span class="p">))</span>
+            <span class="n">rho</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ni</span><span class="o">.</span><span class="n">eval_rho1</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">hermi</span><span class="p">,</span> <span class="n">with_lapl</span><span class="p">))</span>
         <span class="n">rho</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">spin</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">rho</span> <span class="o">*=</span> <span class="mf">.5</span>
@@ -1363,8 +1341,8 @@ document.write(`
         <span class="n">rhob</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">ao_k2</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">coords</span> \
                 <span class="ow">in</span> <span class="n">ni</span><span class="o">.</span><span class="n">block_loop</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">grids</span><span class="p">,</span> <span class="n">nao</span><span class="p">,</span> <span class="n">ao_deriv</span><span class="p">,</span> <span class="n">kpts</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_memory</span><span class="p">):</span>
-            <span class="n">rhoa</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ni</span><span class="o">.</span><span class="n">eval_rho1</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">dm</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">hermi</span><span class="p">))</span>
-            <span class="n">rhob</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ni</span><span class="o">.</span><span class="n">eval_rho1</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">dm</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">hermi</span><span class="p">))</span>
+            <span class="n">rhoa</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ni</span><span class="o">.</span><span class="n">eval_rho1</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">dm</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">hermi</span><span class="p">,</span> <span class="n">with_lapl</span><span class="p">))</span>
+            <span class="n">rhob</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ni</span><span class="o">.</span><span class="n">eval_rho1</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao_k1</span><span class="p">,</span> <span class="n">dm</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">hermi</span><span class="p">,</span> <span class="n">with_lapl</span><span class="p">))</span>
         <span class="n">rho</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">rhoa</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">rhob</span><span class="p">)])</span>
     <span class="n">vxc</span><span class="p">,</span> <span class="n">fxc</span> <span class="o">=</span> <span class="n">ni</span><span class="o">.</span><span class="n">eval_xc_eff</span><span class="p">(</span><span class="n">xc_code</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">deriv</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">xctype</span><span class="o">=</span><span class="n">xctype</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">rho</span><span class="p">,</span> <span class="n">vxc</span><span class="p">,</span> <span class="n">fxc</span></div>
@@ -1449,11 +1427,13 @@ document.write(`
 
 
     <span class="k">def</span> <span class="nf">_vxc_mat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="p">,</span> <span class="n">ao</span><span class="p">,</span> <span class="n">wv</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">shls_slice</span><span class="p">,</span> <span class="n">ao_loc</span><span class="p">,</span> <span class="n">hermi</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">xctype</span> <span class="o">==</span> <span class="s1">&#39;MGGA&#39;</span><span class="p">:</span>
+            <span class="n">tau_idx</span> <span class="o">=</span> <span class="mi">4</span>
+            <span class="n">wv</span><span class="p">[</span><span class="n">tau_idx</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">.5</span> <span class="c1"># *.5 for 1/2 in tau</span>
         <span class="k">if</span> <span class="n">hermi</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="c1"># *.5 because mat + mat.T in the caller when hermi=1</span>
             <span class="n">wv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">.5</span>
             <span class="k">if</span> <span class="n">xctype</span> <span class="o">==</span> <span class="s1">&#39;MGGA&#39;</span><span class="p">:</span>
-                <span class="n">tau_idx</span> <span class="o">=</span> <span class="mi">4</span>
                 <span class="n">wv</span><span class="p">[</span><span class="n">tau_idx</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">.5</span>
         <span class="k">return</span> <span class="n">_vxc_mat</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">ao</span><span class="p">,</span> <span class="n">wv</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">shls_slice</span><span class="p">,</span> <span class="n">ao_loc</span><span class="p">,</span> <span class="n">hermi</span><span class="p">)</span>
 
@@ -1693,11 +1673,13 @@ document.write(`
         <span class="n">nao</span> <span class="o">=</span> <span class="n">ao_kpts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">dtype</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">result_type</span><span class="p">(</span><span class="n">wv</span><span class="p">,</span> <span class="o">*</span><span class="n">ao_kpts</span><span class="p">)</span>
         <span class="n">mat</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nkpts</span><span class="p">,</span><span class="n">nao</span><span class="p">,</span><span class="n">nao</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">xctype</span> <span class="o">==</span> <span class="s1">&#39;MGGA&#39;</span><span class="p">:</span>
+            <span class="n">tau_idx</span> <span class="o">=</span> <span class="mi">4</span>
+            <span class="n">wv</span><span class="p">[</span><span class="n">tau_idx</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">.5</span> <span class="c1"># *.5 for 1/2 in tau</span>
         <span class="k">if</span> <span class="n">hermi</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="c1"># *.5 because mat + mat.T in the caller when hermi=1</span>
             <span class="n">wv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">.5</span>
             <span class="k">if</span> <span class="n">xctype</span> <span class="o">==</span> <span class="s1">&#39;MGGA&#39;</span><span class="p">:</span>
-                <span class="n">tau_idx</span> <span class="o">=</span> <span class="mi">4</span>
                 <span class="n">wv</span><span class="p">[</span><span class="n">tau_idx</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">.5</span>
 
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nkpts</span><span class="p">):</span>
@@ -1828,8 +1810,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1862,7 +1844,7 @@ document.write(`
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>
